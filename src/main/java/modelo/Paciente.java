@@ -5,21 +5,14 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private int dni;
-    private int id_direccion;
+    private String direccion;
+    private String departamento;
+    private int codigo_postal;
+    private int id_localidad;
     private String email;
     private String tel_fijo;
     private String tel_cel;
 
-    public Paciente(int id, String nombre, String apellido, int dni, int id_direccion, String email, String tel_fijo, String tel_cel) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.id_direccion = id_direccion;
-        this.email = email;
-        this.tel_fijo = tel_fijo;
-        this.tel_cel = tel_cel;
-    }
 
     public int getId() {
         return id;
@@ -53,12 +46,36 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public int getId_direccion() {
-        return id_direccion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setId_direccion(int id_direccion) {
-        this.id_direccion = id_direccion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public int getCodigo_postal() {
+        return codigo_postal;
+    }
+
+    public void setCodigo_postal(int codigo_postal) {
+        this.codigo_postal = codigo_postal;
+    }
+
+    public int getId_localidad() {
+        return id_localidad;
+    }
+
+    public void setId_localidad(int id_localidad) {
+        this.id_localidad = id_localidad;
     }
 
     public String getEmail() {
@@ -85,6 +102,5 @@ public class Paciente {
         this.tel_cel = tel_cel;
     }
 
- 
     
 }

@@ -27,6 +27,12 @@ public class ctrlAltaPaciente implements ActionListener {
         this.frm.bt_vaciar.addActionListener(this);
         this.frm.bt_atras.addActionListener(this);
     }
+
+    
+    public void iniciar(){
+        frm.setTitle("Alta Paciente");
+        frm.setLocationRelativeTo(null);
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
