@@ -16,6 +16,7 @@ public class formAltaPaciente extends javax.swing.JFrame {
      */
     public formAltaPaciente() {
         initComponents();
+        this.txt_depa.setEnabled(false);
     }
 
     /**
@@ -273,10 +274,15 @@ public class formAltaPaciente extends javax.swing.JFrame {
 
     private void chb_edificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chb_edificioActionPerformed
         // TODO add your handling code here:
+        if(this.chb_edificio.isSelected()){
+            this.txt_depa.setEnabled(true);
+        }else{
+            this.txt_depa.setEnabled(false);
+        }
     }//GEN-LAST:event_chb_edificioActionPerformed
 
     private void cob_localidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cob_localidadActionPerformed
-        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_cob_localidadActionPerformed
 
     private void txt_depaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_depaActionPerformed

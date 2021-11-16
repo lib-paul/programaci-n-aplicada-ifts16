@@ -42,9 +42,19 @@ public class ctrlAltaPaciente implements ActionListener {
             paciente.setNombre(frm.txt_nombre.getText());
             paciente.setApellido(frm.txt_apellido.getText());
             paciente.setDni(Integer.parseInt(frm.txt_dni.getText()));
+            paciente.setDireccion(frm.txt_direccion.getText());
             paciente.setEmail(frm.txt_email.getText());
+            paciente.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
             paciente.setTel_fijo(frm.txt_tf.getText());
             paciente.setTel_cel(frm.txt_tc.getText());
+            String[] localidades= frm.cob_localidad.getItemAt(frm.cob_localidad.getSelectedIndex()).split("-");
+            System.out.println(localidades[0]);
+            paciente.setId_localidad(Integer.parseInt(localidades[0]));
+            if(frm.chb_edificio.isSelected()){
+                paciente.setDepartamento(frm.txt_depa.getText());
+            }else{
+                paciente.setDepartamento("");
+            }
             try {
                 if(consulta.altaPaciente(paciente)){
                     JOptionPane.showMessageDialog(null, "Registro guardado.");
@@ -69,9 +79,9 @@ public class ctrlAltaPaciente implements ActionListener {
         frm.txt_dni.setText(null);
         frm.txt_direccion.setText(null);
         frm.txt_cp.setText(null);
+        frm.txt_email.setText(null);
         frm.txt_tf.setText(null);
         frm.txt_tc.setText(null);
-        frm.chb_edificio.setEnabled(false);
     }
 
 }

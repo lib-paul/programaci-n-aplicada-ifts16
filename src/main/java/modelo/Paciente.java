@@ -102,5 +102,4 @@ public class Paciente {
         this.tel_cel = tel_cel;
     }
 
-    
 }

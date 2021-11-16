@@ -12,7 +12,7 @@ public class Consultas extends conexionBDD {
     public boolean altaPaciente(Paciente paciente) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
-        String sql = "INSERT INTO paciente (nombre, apellido, documento, direccion, email, telefono_fijo, telefono_celular, departamento, codigo_postal, id_localidad) VALUES (?,?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO paciente (nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular, departamento, codigo_postal, id_localidad) VALUES (?,?,?,?,?,?,?,?,?,?);";
 
         try {
             pps = con.prepareStatement(sql);
@@ -26,6 +26,8 @@ public class Consultas extends conexionBDD {
             pps.setString(7, paciente.getTel_cel());
             pps.setString(8, paciente.getDepartamento());
             pps.setInt(9, paciente.getCodigo_postal());
+            pps.setInt(10, paciente.getId_localidad());
+            
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -46,13 +48,12 @@ public class Consultas extends conexionBDD {
         ResultSet rs;
         Connection con = conexion();
         String sql = "SELECT * FROM localidad";
-
         try {
             pps = con.prepareStatement(sql);
             rs = pps.executeQuery();
             System.out.println(rs);
             while (rs.next()) {
-                frm.cob_localidad.addItem(rs.getString("nombre")+rs.getString("id"));
+                frm.cob_localidad.addItem(rs.getString("id")+"-"+rs.getString("nombre"));
             }
             return false;
         } catch (SQLException e) {
