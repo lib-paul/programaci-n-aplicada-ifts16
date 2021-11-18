@@ -8,7 +8,7 @@ import vista.formAltaPaciente;
 
 public class Consultas extends conexionBDD {
 
-    /* Paciente */
+    /* Alta Paciente */
     public boolean altaPaciente(Paciente paciente) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
@@ -42,7 +42,43 @@ public class Consultas extends conexionBDD {
         }
 
     }
+    
+    /* Alta Medico */
+    public boolean altaMedico(Medico medico) throws SQLException {
+        PreparedStatement pps;
+        Connection con = conexion();
+        String sql = "INSERT INTO medico (nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular, departamento, codigo_postal, id_localidad) VALUES (?,?,?,?,?,?,?,?,?,?);";
 
+        try {
+            pps = con.prepareStatement(sql);
+
+            pps.setString(1, medico.getNombre());
+            pps.setString(2, medico.getApellido());
+            pps.setInt(3, medico.getDni());
+            pps.setString(4, medico.getDireccion());
+            pps.setString(5, medico.getEmail());
+            pps.setString(6, medico.getTel_fijo());
+            pps.setString(7, medico.getTel_cel());
+            pps.setString(8, medico.getDepartamento());
+            pps.setInt(9, medico.getCodigo_postal());
+            pps.setInt(10, medico.getId_localidad());
+            
+            pps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }    
+    
+    /* Cargar Combo Box Altas */
     public boolean cargarComboBox(formAltaPaciente frm) throws SQLException {
         PreparedStatement pps;
         ResultSet rs;
