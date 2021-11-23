@@ -1,4 +1,5 @@
 package controlador;
+import vista.formAltaPaciente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -6,57 +7,55 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Consultas;
-import modelo.Medico;
-import vista.formAltaMedico;
+import modelo.Paciente;
 
 
-public class ctrAltaMedico implements ActionListener{
+public class ctrAltaPaciente implements ActionListener {
     
     /* atributos */
-    private Medico medico;
-    private formAltaMedico frm;
+    private Paciente paciente;
+    private formAltaPaciente frm;
     private Consultas consulta;
     
     /* constructor */
-    public ctrAltaMedico(Medico medico, formAltaMedico frm, Consultas consulta) {
-        this.medico = medico;
+    public ctrAltaPaciente(Paciente paciente, formAltaPaciente frm, Consultas consulta) {
+        this.paciente = paciente;
         this.frm = frm;
         this.consulta = consulta;
         this.frm.bt_alta.addActionListener(this);
         this.frm.bt_vaciar.addActionListener(this);
         this.frm.bt_atras.addActionListener(this);
     }
-    
+
     /* iniciador */
     public void iniciar(){
-        frm.setTitle("Alta Medico");
+        frm.setTitle("Alta Paciente");
         frm.setLocationRelativeTo(null);
     }
     
-    /* controlador de alta medico */
+    /* controlador de alta paciente */
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        /* si se apreta el boton "alta" */
+        /* Alta Paciente */
         if(e.getSource() == frm.bt_alta){
-            medico.setNombre(frm.txt_nombre.getText());
-            medico.setApellido(frm.txt_apellido.getText());
-            medico.setDni(Integer.parseInt(frm.txt_dni.getText()));
-            medico.setDireccion(frm.txt_direccion.getText());
-            medico.setEmail(frm.txt_email.getText());
-            medico.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
-            medico.setTel_fijo(frm.txt_tf.getText());
-            medico.setTel_cel(frm.txt_tc.getText());
+            paciente.setNombre(frm.txt_nombre.getText());
+            paciente.setApellido(frm.txt_apellido.getText());
+            paciente.setDni(Integer.parseInt(frm.txt_dni.getText()));
+            paciente.setDireccion(frm.txt_direccion.getText());
+            paciente.setEmail(frm.txt_email.getText());
+            paciente.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
+            paciente.setTel_fijo(frm.txt_tf.getText());
+            paciente.setTel_cel(frm.txt_tc.getText());
             String[] localidades= frm.cob_localidad.getItemAt(frm.cob_localidad.getSelectedIndex()).split("-");
             System.out.println(localidades[0]);
-            medico.setId_localidad(Integer.parseInt(localidades[0]));
+            paciente.setId_localidad(Integer.parseInt(localidades[0]));
             if(frm.chb_edificio.isSelected()){
-                medico.setDepartamento(frm.txt_depa.getText());
+                paciente.setDepartamento(frm.txt_depa.getText());
             }else{
-                medico.setDepartamento("");
+                paciente.setDepartamento("");
             }
             try {
-                if(consulta.altaMedico(medico)){
+                if(consulta.altaPaciente(paciente)){
                     JOptionPane.showMessageDialog(null, "Registro guardado.");
                     limpiar();
                 }
@@ -67,13 +66,13 @@ public class ctrAltaMedico implements ActionListener{
             }
         }
         
-        /* si se apreta el boton "vaciar" */
+        //Limpiar
         if(e.getSource() == frm.bt_vaciar){
             limpiar();
         }
     }
     
-    /* metodo para vaciar los txt field del formulario de alta medico */
+    /* metodo para vaciar los txt field del formulario de alta paciente */
     private void limpiar(){
         frm.txt_nombre.setText(null);
         frm.txt_apellido.setText(null);
@@ -84,5 +83,5 @@ public class ctrAltaMedico implements ActionListener{
         frm.txt_tf.setText(null);
         frm.txt_tc.setText(null);
     }
-    
+
 }

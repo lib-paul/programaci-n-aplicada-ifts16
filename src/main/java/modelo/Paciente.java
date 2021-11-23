@@ -1,6 +1,8 @@
 package modelo;
 
 public class Paciente {
+    
+    /* atributos */
     private int id;
     private String nombre;
     private String apellido;
@@ -13,7 +15,7 @@ public class Paciente {
     private String tel_fijo;
     private String tel_cel;
 
-
+    /* getters and setters */
     public int getId() {
         return id;
     }

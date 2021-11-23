@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author guchooo
- */
+
 public class Medico {
+    
+    /* atributos */
     private int id;
     private String nombre;
     private String apellido;
@@ -17,12 +11,12 @@ public class Medico {
     private String direccion;
     private String departamento;
     private int codigo_postal;
-    private int id_especialidad;
     private int id_localidad;
     private String email;
     private String tel_fijo;
     private String tel_cel;
 
+    /* getters and setters */
     public int getId() {
         return id;
     }
@@ -111,14 +105,5 @@ public class Medico {
         this.tel_cel = tel_cel;
     }
 
-    public int getId_especialidad() {
-        return id_especialidad;
-    }
-
-    public void setId_especialidad(int id_especialidad) {
-        this.id_especialidad = id_especialidad;
-    }
-    
-    
     
 }
