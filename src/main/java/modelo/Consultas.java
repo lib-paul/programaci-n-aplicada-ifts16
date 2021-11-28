@@ -280,13 +280,15 @@ public class Consultas extends conexionBDD {
         }
     }
     
-    public boolean ListaEspecialidades(DefaultListModel list_especialidades) throws SQLException{
+    public boolean ListaEspecialidades(DefaultListModel list_especialidades,Medico medico) throws SQLException{
+
         PreparedStatement pps;
         Connection con = conexion();
         ResultSet rs;
         String sql= "SELECT especialidad.nombre_especialidad FROM medico_especialidad INNER JOIN especialidad ON medico_especialidad.id_especialidad = id WHERE medico_especialidad.id_medico = ?";
         try{
             pps = con.prepareStatement(sql);
+            pps.setInt(1,medico.getId());
             rs = pps.executeQuery();
             while(rs.next()){
                 list_especialidades.addElement(rs.getString("nombre_especialidad"));

@@ -2,13 +2,12 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import modelo.Consultas;
 import modelo.Medico;
 import vista.formAgregarEspecialidad;
-import vista.formMod;
 
 
 public class ctrAgregarEspecialidad implements ActionListener {
@@ -39,23 +38,28 @@ public class ctrAgregarEspecialidad implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         
-        
         /* si se apreta el boton de "agregar" */
         if(e.getSource() == frm.bt_agregar){
             String [] especialidad = frm.cob_especialidades.getSelectedItem().toString().split("-");
             int id_especialidad = Integer.parseInt(especialidad[0]);
             int id_medico = medico.getId();
             try {
-                consulta.agregarEspecialidad(id_medico, id_especialidad);
+                if (id_medico != 0){
+                    consulta.agregarEspecialidad(id_medico, id_especialidad);
+                }else{
+                    JOptionPane.showMessageDialog(null, "No hay medico cargado.");
+                }    
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
             
         }
+        
         /* si se apreta el boton de "eliminar" */
         if(e.getSource() == frm.bt_eliminar){
             
         }
+        
         /* si se apreta el boton de "atras" */
         if(e.getSource() == frm.bt_atras){
             frm.setVisible(false);

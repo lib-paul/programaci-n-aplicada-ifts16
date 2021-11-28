@@ -1,10 +1,12 @@
 package vista;
 
-public class formAgregarEspecialidad extends javax.swing.JFrame {
 
+
+public class formAgregarEspecialidad extends javax.swing.JFrame {
+    
     public formAgregarEspecialidad() {
         initComponents();
-        
+
     }
 
     @SuppressWarnings("unchecked")

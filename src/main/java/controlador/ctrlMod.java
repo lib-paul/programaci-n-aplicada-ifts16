@@ -1,17 +1,16 @@
 package controlador;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import modelo.Consultas;
 import modelo.Medico;
 import modelo.Paciente;
 import vista.formAgregarEspecialidad;
 import vista.formMod;
-import controlador.ctrAgregarEspecialidad;
 
 public class ctrlMod implements ActionListener {
 
@@ -172,6 +171,14 @@ public class ctrlMod implements ActionListener {
             /*--------AGREGAR ESPECIALIDAD MEDICO----------*/
             if(e.getSource() == frm.bt_agregar_especialidad){
                 formAgregarEspecialidad form = new formAgregarEspecialidad();
+                /*#####Carga Lista######*/
+                DefaultListModel dlm = new DefaultListModel();
+                try {
+                    consulta.ListaEspecialidades(dlm, medico);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ctrlMod.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                form.list_especialidades.setModel(dlm);
                 ctrAgregarEspecialidad controlador = new ctrAgregarEspecialidad(form, consulta, medico);
                 try {
                     consulta.cargarComboBoxE(form.cob_especialidades);
