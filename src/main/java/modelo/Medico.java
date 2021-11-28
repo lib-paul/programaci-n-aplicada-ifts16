@@ -11,7 +11,7 @@ public class Medico {
     private String direccion;
     private String departamento;
     private int codigo_postal;
-    private int id_localidad;
+    private int localidad;
     private String email;
     private String tel_fijo;
     private String tel_cel;
@@ -73,13 +73,6 @@ public class Medico {
         this.codigo_postal = codigo_postal;
     }
 
-    public int getId_localidad() {
-        return id_localidad;
-    }
-
-    public void setId_localidad(int id_localidad) {
-        this.id_localidad = id_localidad;
-    }
 
     public String getEmail() {
         return email;
@@ -103,6 +96,19 @@ public class Medico {
 
     public void setTel_cel(String tel_cel) {
         this.tel_cel = tel_cel;
+    }
+
+    public int getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(int localidad) {
+        this.localidad = localidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Medico{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", direccion=" + direccion + ", departamento=" + departamento + ", codigo_postal=" + codigo_postal + ", localidad=" + localidad + ", email=" + email + ", tel_fijo=" + tel_fijo + ", tel_cel=" + tel_cel + '}';
     }
 
     

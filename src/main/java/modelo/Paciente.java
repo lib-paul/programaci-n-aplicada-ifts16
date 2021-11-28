@@ -10,7 +10,7 @@ public class Paciente {
     private String direccion;
     private String departamento;
     private int codigo_postal;
-    private int id_localidad;
+    private int localidad;
     private String email;
     private String tel_fijo;
     private String tel_cel;
@@ -72,14 +72,6 @@ public class Paciente {
         this.codigo_postal = codigo_postal;
     }
 
-    public int getId_localidad() {
-        return id_localidad;
-    }
-
-    public void setId_localidad(int id_localidad) {
-        this.id_localidad = id_localidad;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -104,4 +96,13 @@ public class Paciente {
         this.tel_cel = tel_cel;
     }
 
+    public int getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(int localidad) {
+        this.localidad = localidad;
+    }
+
+    
 }
