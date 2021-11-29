@@ -42,7 +42,7 @@ public class formAlta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cob_especialidad = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblProfile = new javax.swing.JLabel();
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +163,7 @@ public class formAlta extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setText("Alta de Pacientes/Medicos");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_add_user_group_woman_man_60px.png"))); // NOI18N
+        lblProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_add_user_group_woman_man_60px.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,7 +239,7 @@ public class formAlta extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel14)))
+                        .addComponent(lblProfile)))
                 .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
@@ -247,7 +247,7 @@ public class formAlta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -396,7 +396,6 @@ public class formAlta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -406,6 +405,7 @@ public class formAlta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lblProfile;
     public javax.swing.JComboBox<String> persona_medico;
     public javax.swing.JTextField txt_apellido;
     public javax.swing.JTextField txt_cp;

@@ -29,6 +29,7 @@ public class index extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_Bajas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Bajas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_delete_64px.png"))); // NOI18N
         btn_Bajas.setText("Baja pacientes/medicos");
         btn_Bajas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,6 +44,7 @@ public class index extends javax.swing.JFrame {
         btn_bajaTurno.setText("Baja turnos");
 
         btn_cerrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_Logout_64px.png"))); // NOI18N
         btn_cerrar.setText("Cerrar sesion");
         btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +53,7 @@ public class index extends javax.swing.JFrame {
         });
 
         btn_Altas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Altas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_add_64px.png"))); // NOI18N
         btn_Altas.setText("Alta pacientes/medicos");
         btn_Altas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +65,8 @@ public class index extends javax.swing.JFrame {
         btn_altaTurno.setText("Turnos disponibles");
 
         btn_Mod.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btn_Mod.setText("Modificacion pacientes/medicos");
+        btn_Mod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_edit_property_64px.png"))); // NOI18N
+        btn_Mod.setText("Mod pacientes/medicos");
         btn_Mod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ModActionPerformed(evt);
@@ -93,14 +97,14 @@ public class index extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_Mod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_Bajas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btn_Bajas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_altaTurno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_modTurno, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                            .addComponent(btn_modTurno, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                             .addComponent(btn_bajaTurno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(29, 29, 29))
@@ -128,9 +132,9 @@ public class index extends javax.swing.JFrame {
                             .addComponent(btn_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btn_Bajas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(68, 68, 68)
+                .addGap(50, 50, 50)
                 .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
