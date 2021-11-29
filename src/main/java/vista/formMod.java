@@ -5,6 +5,11 @@
  */
 package vista;
 
+import controlador.ctrlMod;
+import modelo.Consultas;
+import modelo.Medico;
+import modelo.Paciente;
+
 /**
  *
  * @author Ryzen 5
@@ -107,6 +112,11 @@ public class formMod extends javax.swing.JFrame {
         jLabel2.setText("Apellidos");
 
         bt_atras.setText("Atrás");
+        bt_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_atrasActionPerformed(evt);
+            }
+        });
 
         txt_apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,9 +353,9 @@ public class formMod extends javax.swing.JFrame {
 
     private void chb_edificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chb_edificioActionPerformed
         // TODO add your handling code here:
-        if(this.chb_edificio.isSelected()){
+        if (this.chb_edificio.isSelected()) {
             this.txt_depa.setEnabled(true);
-        }else{
+        } else {
             this.txt_depa.setEnabled(false);
         }
     }//GEN-LAST:event_chb_edificioActionPerformed
@@ -359,7 +369,7 @@ public class formMod extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_depaActionPerformed
 
     private void persona_medicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persona_medicoActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_persona_medicoActionPerformed
 
     private void cob_localidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cob_localidadActionPerformed
@@ -369,6 +379,14 @@ public class formMod extends javax.swing.JFrame {
     private void bt_agregar_especialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregar_especialidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_agregar_especialidadActionPerformed
+
+    private void bt_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_atrasActionPerformed
+
+        index form = new index();
+        this.setVisible(false);
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+    }//GEN-LAST:event_bt_atrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,8 +434,10 @@ public class formMod extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new formMod().setVisible(true);
+              
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

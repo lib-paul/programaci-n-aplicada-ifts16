@@ -6,11 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import modelo.Consultas;
-import modelo.Medico;
-import modelo.Paciente;
-import vista.formAgregarEspecialidad;
-import vista.formMod;
+import modelo.*;
+import vista.*;
 
 public class ctrlMod implements ActionListener {
 
@@ -39,6 +36,7 @@ public class ctrlMod implements ActionListener {
         frm.setLocationRelativeTo(null);
         frm.jLabel8.setVisible(false);
         frm.bt_agregar_especialidad.setVisible(false);
+        System.out.println("algo");
     }
 
     /* controlador de mod paciente */

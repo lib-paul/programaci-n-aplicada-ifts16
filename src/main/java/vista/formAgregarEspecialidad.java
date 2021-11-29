@@ -1,9 +1,7 @@
 package vista;
 
-
-
 public class formAgregarEspecialidad extends javax.swing.JFrame {
-    
+
     public formAgregarEspecialidad() {
         initComponents();
 
@@ -101,7 +99,6 @@ public class formAgregarEspecialidad extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bt_atrasActionPerformed
 
- 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

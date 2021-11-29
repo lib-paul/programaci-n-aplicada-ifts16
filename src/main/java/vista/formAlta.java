@@ -133,6 +133,11 @@ public class formAlta extends javax.swing.JFrame {
         bt_vaciar.setText("Vaciar campos");
 
         bt_atras.setText("Atrás");
+        bt_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_atrasActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Carga de ");
 
@@ -345,6 +350,13 @@ public class formAlta extends javax.swing.JFrame {
             this.cob_especialidad.setEnabled(false);
         }
     }//GEN-LAST:event_persona_medicoActionPerformed
+
+    private void bt_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_atrasActionPerformed
+        index form = new index();
+        this.setVisible(false);
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+    }//GEN-LAST:event_bt_atrasActionPerformed
 
     /**
      * @param args the command line arguments
