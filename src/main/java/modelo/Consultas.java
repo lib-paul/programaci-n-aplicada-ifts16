@@ -4,11 +4,14 @@ import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Consultas extends conexionBDD {
 
@@ -362,7 +365,58 @@ public class Consultas extends conexionBDD {
         }
 
     }
-
+    public void cargarTabla(JTable tabla, String variable) throws SQLException{
+        DefaultTableModel modelo = new DefaultTableModel();
+        tabla.setModel(modelo);
+        PreparedStatement ps = null;
+        ResultSet rs= null;
+        Connection con = conexion();
+        String sql = null;
+        if (variable == "Paciente"){
+            sql = "SELECT id_paciente, nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular FROM paciente ";
+        }else if(variable == "Medico"){
+            sql = "SELECT id_medico, nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular FROM medico ";
+        }
+        
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        ResultSetMetaData rsMD = rs.getMetaData();
+        int cantidadColumnas = rsMD.getColumnCount();
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Documento");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Email");
+        modelo.addColumn("Tel Fijo");
+        modelo.addColumn("Tel Celular");
+       
+        while(rs.next()){
+            Object[] filas = new Object[cantidadColumnas];
+            for (int i = 0; i < cantidadColumnas; i++) {
+                filas[i]= rs.getObject(i+1);
+            }
+            modelo.addRow(filas);
+        }
+    }
+    
+    public void eliminarRegistroTabla(JTable tabla, String variable) throws SQLException{
+        PreparedStatement pps = null;
+        Connection con = conexion();
+        String sql = null;
+        int Fila = tabla.getSelectedRow();
+        int id = (int) tabla.getValueAt(Fila, 0);
+        if(variable == "Paciente"){
+            sql= "DELETE FROM paciente WHERE id_paciente=?";
+        }else if(variable == "Medico"){
+            sql= "DELETE FROM medico WHERE id_medico=?";
+        }
+        pps = con.prepareStatement(sql);
+        pps.setInt(1, id);
+        pps.execute();
+        
+    }
     /**
      * ************************************
      */
