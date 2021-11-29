@@ -3,11 +3,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ComboBoxModel;
+import java.util.logging.*;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import modelo.Consultas;
 import modelo.Medico;
@@ -42,11 +39,11 @@ public class ctrAgregarEspecialidad implements ActionListener {
 
         /* si se apreta el boton de "agregar" */
         if (e.getSource() == frm.bt_agregar) {
-            
+
             String[] especialidad = frm.cob_especialidades.getSelectedItem().toString().split("-");
             int id_especialidad = Integer.parseInt(especialidad[0]);
             int id_medico = medico.getId();
-            
+
             try {
                 if (id_medico != 0) {
                     if (consulta.verificarEspecialidad(id_medico, id_especialidad)) {
@@ -58,11 +55,11 @@ public class ctrAgregarEspecialidad implements ActionListener {
                     JOptionPane.showMessageDialog(null, "No hay medico cargado.");
                 }
                 actualizarEspecialidades();
-                
+
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
-            
+
         }
 
         /* si se apreta el boton de "eliminar" */
@@ -76,7 +73,7 @@ public class ctrAgregarEspecialidad implements ActionListener {
             } catch (SQLException ex) {
                 Logger.getLogger(ctrAgregarEspecialidad.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
 
         /* si se apreta el boton de "atras" */
@@ -85,10 +82,10 @@ public class ctrAgregarEspecialidad implements ActionListener {
             frm.dispose();
         }
     }
-    
-    private void actualizarEspecialidades() throws SQLException{
+
+    private void actualizarEspecialidades() throws SQLException {
         DefaultListModel dlm = new DefaultListModel();
-        consulta.ListaEspecialidades(dlm , medico);
+        consulta.ListaEspecialidades(dlm, medico);
         frm.list_especialidades.setModel(dlm);
     }
 

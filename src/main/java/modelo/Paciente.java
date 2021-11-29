@@ -1,5 +1,6 @@
 package modelo;
 
+/* Clase para armar el objeto de PACIENTE */
 public class Paciente {
     
     /* atributos */

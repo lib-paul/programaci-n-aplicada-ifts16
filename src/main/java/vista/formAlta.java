@@ -1,8 +1,6 @@
 package vista;
 
-
 public class formAlta extends javax.swing.JFrame {
-
 
     public formAlta() {
         initComponents();
@@ -43,6 +41,8 @@ public class formAlta extends javax.swing.JFrame {
         persona_medico = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         cob_especialidad = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,10 +128,13 @@ public class formAlta extends javax.swing.JFrame {
             }
         });
 
+        bt_alta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_ok_16px.png"))); // NOI18N
         bt_alta.setText("Dar de alta");
 
+        bt_vaciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_erase_16px.png"))); // NOI18N
         bt_vaciar.setText("Vaciar campos");
 
+        bt_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_back_16px_1.png"))); // NOI18N
         bt_atras.setText("Atrás");
         bt_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,83 +160,96 @@ public class formAlta extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setText("Alta de Pacientes/Medicos");
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_add_user_group_woman_man_60px.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(persona_medico, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(chb_edificio)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4))
+                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel10))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel10))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(24, 24, 24)
-                                            .addComponent(txt_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(cob_especialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGap(6, 6, 6))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_tc))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_email))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_cp, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(cob_especialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(bt_atras, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bt_alta, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt_vaciar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txt_depa, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                            .addComponent(bt_vaciar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(chb_edificio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_depa, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_apellido))
+                                .addComponent(txt_cp, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_tc))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_dni))
+                                .addComponent(txt_email))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(cob_localidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jLabel3))
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cob_localidad, 0, 182, Short.MAX_VALUE)
+                                    .addComponent(txt_direccion)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(16, 16, 16))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                                .addComponent(jLabel12)
+                                .addGap(15, 15, 15)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(persona_medico, javax.swing.GroupLayout.Alignment.LEADING, 0, 187, Short.MAX_VALUE)
+                            .addComponent(txt_apellido, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel14)))
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(persona_medico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -282,13 +298,13 @@ public class formAlta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cob_especialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(bt_vaciar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bt_alta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bt_atras)
-                .addGap(39, 39, 39))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -312,15 +328,15 @@ public class formAlta extends javax.swing.JFrame {
 
     private void chb_edificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chb_edificioActionPerformed
         // TODO add your handling code here:
-        if(this.chb_edificio.isSelected()){
+        if (this.chb_edificio.isSelected()) {
             this.txt_depa.setEnabled(true);
-        }else{
+        } else {
             this.txt_depa.setEnabled(false);
         }
     }//GEN-LAST:event_chb_edificioActionPerformed
 
     private void cob_localidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cob_localidadActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_cob_localidadActionPerformed
 
     private void txt_depaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_depaActionPerformed
@@ -344,9 +360,9 @@ public class formAlta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_tfActionPerformed
 
     private void persona_medicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_persona_medicoActionPerformed
-        if("Medico".equals(this.persona_medico.getItemAt(this.persona_medico.getSelectedIndex()))){
+        if ("Medico".equals(this.persona_medico.getItemAt(this.persona_medico.getSelectedIndex()))) {
             this.cob_especialidad.setEnabled(true);
-        }else{
+        } else {
             this.cob_especialidad.setEnabled(false);
         }
     }//GEN-LAST:event_persona_medicoActionPerformed
@@ -358,47 +374,7 @@ public class formAlta extends javax.swing.JFrame {
         form.setLocationRelativeTo(null);
     }//GEN-LAST:event_bt_atrasActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formAlta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -419,6 +395,8 @@ public class formAlta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

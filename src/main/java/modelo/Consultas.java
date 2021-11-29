@@ -1,15 +1,8 @@
 package modelo;
 
-import java.sql.Array;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,10 +13,8 @@ public class Consultas extends conexionBDD {
         PreparedStatement pps;
         Connection con = conexion();
         String sql = "INSERT INTO paciente (nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular, departamento, codigo_postal, localidad) VALUES (?,?,?,?,?,?,?,?,?,?);";
-
         try {
             pps = con.prepareStatement(sql);
-
             pps.setString(1, paciente.getNombre());
             pps.setString(2, paciente.getApellido());
             pps.setLong(3, paciente.getDni());
@@ -34,7 +25,6 @@ public class Consultas extends conexionBDD {
             pps.setString(8, paciente.getDepartamento());
             pps.setInt(9, paciente.getCodigo_postal());
             pps.setInt(10, paciente.getLocalidad());
-
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -47,7 +37,6 @@ public class Consultas extends conexionBDD {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 
     /* INSERT medico (alta) */
@@ -55,7 +44,6 @@ public class Consultas extends conexionBDD {
         PreparedStatement pps;
         Connection con = conexion();
         String sql = "INSERT INTO medico (nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular, departamento, codigo_postal, localidad) VALUES (?,?,?,?,?,?,?,?,?,?);";
-
         try {
             pps = con.prepareStatement(sql);
 
@@ -169,7 +157,6 @@ public class Consultas extends conexionBDD {
 
         try {
             pps = con.prepareStatement(sql);
-
             pps.setString(1, paciente.getNombre());
             pps.setString(2, paciente.getApellido());
             pps.setInt(3, paciente.getDni());
@@ -181,7 +168,6 @@ public class Consultas extends conexionBDD {
             pps.setInt(9, paciente.getCodigo_postal());
             pps.setInt(10, paciente.getLocalidad());
             pps.setLong(11, dni);
-
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -205,7 +191,6 @@ public class Consultas extends conexionBDD {
 
         try {
             pps = con.prepareStatement(sql);
-
             pps.setString(1, medico.getNombre());
             pps.setString(2, medico.getApellido());
             pps.setInt(3, medico.getDni());
@@ -217,7 +202,6 @@ public class Consultas extends conexionBDD {
             pps.setInt(9, medico.getCodigo_postal());
             pps.setInt(10, medico.getLocalidad());
             pps.setInt(11, dni);
-
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -230,7 +214,6 @@ public class Consultas extends conexionBDD {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 
     /* INSERT relacion medico_especialidad (agregar especialidad) */
@@ -241,10 +224,8 @@ public class Consultas extends conexionBDD {
 
         try {
             pps = con.prepareStatement(sql);
-
             pps.setInt(1, id_m);
             pps.setInt(2, id_e);
-
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -259,7 +240,7 @@ public class Consultas extends conexionBDD {
         }
 
     }
-
+    /* Verificación de la especilidadad (duplicados) */
     public boolean verificarEspecialidad(int id_m, int id_e) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
@@ -288,19 +269,18 @@ public class Consultas extends conexionBDD {
         }
         return true;
     }
-    
-    
-    public boolean eliminarEspecialidad(int id_medicoCargado, int id_especialidadSeleccionada) throws SQLException{
+    /* Eliminación de la especialidad de cada medico */
+    public boolean eliminarEspecialidad(int id_medicoCargado, int id_especialidadSeleccionada) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
         String sql = "DELETE FROM medico_especialidad WHERE id_medico=? AND id_especialidad=?;";
-        
+
         try {
             pps = con.prepareStatement(sql);
             pps.setInt(1, id_medicoCargado);
             pps.setInt(2, id_especialidadSeleccionada);
             pps.execute();
-            
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
@@ -314,7 +294,7 @@ public class Consultas extends conexionBDD {
         return true;
     }
 
-    /* cargar combo box especialidad */
+    /* Cargar combo box especialidad */
     public boolean cargarComboBoxE(JComboBox cob_especialidades) throws SQLException {
         PreparedStatement pps;
         ResultSet rs;
@@ -338,9 +318,10 @@ public class Consultas extends conexionBDD {
             }
         }
     }
-
+    
+    /* Cargar la lista de especialidades para el medico seleccionado */
     public boolean ListaEspecialidades(DefaultListModel list_especialidades, Medico medico) throws SQLException {
-        
+
         PreparedStatement pps;
         Connection con = conexion();
         ResultSet rs;
@@ -365,24 +346,26 @@ public class Consultas extends conexionBDD {
         }
 
     }
-    public void cargarTabla(JTable tabla, String variable) throws SQLException{
+    
+    /* Cargar la tabla de medicos o pacientes para ver los registros */
+    public void cargarTabla(JTable tabla, String variable) throws SQLException {
         DefaultTableModel modelo = new DefaultTableModel();
         tabla.setModel(modelo);
         PreparedStatement ps = null;
-        ResultSet rs= null;
+        ResultSet rs = null;
         Connection con = conexion();
         String sql = null;
-        if (variable == "Paciente"){
+        if (variable == "Paciente") {
             sql = "SELECT id_paciente, nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular FROM paciente ";
-        }else if(variable == "Medico"){
+        } else if (variable == "Medico") {
             sql = "SELECT id_medico, nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular FROM medico ";
         }
-        
+
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
         ResultSetMetaData rsMD = rs.getMetaData();
         int cantidadColumnas = rsMD.getColumnCount();
-        
+
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
@@ -391,31 +374,31 @@ public class Consultas extends conexionBDD {
         modelo.addColumn("Email");
         modelo.addColumn("Tel Fijo");
         modelo.addColumn("Tel Celular");
-       
-        while(rs.next()){
+
+        while (rs.next()) {
             Object[] filas = new Object[cantidadColumnas];
             for (int i = 0; i < cantidadColumnas; i++) {
-                filas[i]= rs.getObject(i+1);
+                filas[i] = rs.getObject(i + 1);
             }
             modelo.addRow(filas);
         }
     }
-    
-    public void eliminarRegistroTabla(JTable tabla, String variable) throws SQLException{
+    /* Elimina el registro de la tabla anteriormente cargada seleccionado */
+    public void eliminarRegistroTabla(JTable tabla, String variable) throws SQLException {
         PreparedStatement pps = null;
         Connection con = conexion();
         String sql = null;
         int Fila = tabla.getSelectedRow();
         int id = (int) tabla.getValueAt(Fila, 0);
-        if(variable == "Paciente"){
-            sql= "DELETE FROM paciente WHERE id_paciente=?";
-        }else if(variable == "Medico"){
-            sql= "DELETE FROM medico WHERE id_medico=?";
+        if (variable == "Paciente") {
+            sql = "DELETE FROM paciente WHERE id_paciente=?";
+        } else if (variable == "Medico") {
+            sql = "DELETE FROM medico WHERE id_medico=?";
         }
         pps = con.prepareStatement(sql);
         pps.setInt(1, id);
         pps.execute();
-        
+
     }
     /**
      * ************************************

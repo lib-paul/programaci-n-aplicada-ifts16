@@ -1,4 +1,5 @@
 package controlador;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -165,9 +166,9 @@ public class ctrlMod implements ActionListener {
                     Logger.getLogger(ctrlAltas.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
+
             /*--------AGREGAR ESPECIALIDAD MEDICO----------*/
-            if(e.getSource() == frm.bt_agregar_especialidad){
+            if (e.getSource() == frm.bt_agregar_especialidad) {
                 formAgregarEspecialidad form = new formAgregarEspecialidad();
                 /*#####Carga Lista######*/
                 DefaultListModel dlm = new DefaultListModel();

@@ -30,104 +30,115 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace pref="55" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txt_nombre" min="-2" pref="187" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="persona_medico" min="-2" pref="186" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="chb_edificio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                          <Component id="txt_tf" min="-2" pref="164" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="cob_especialidad" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="cob_especialidad" min="-2" pref="164" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txt_tc" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txt_email" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txt_cp" min="-2" pref="162" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txt_tf" min="-2" pref="164" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
                           <Component id="bt_atras" alignment="0" max="32767" attributes="0"/>
                           <Component id="bt_alta" alignment="1" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="bt_vaciar" alignment="0" pref="253" max="32767" attributes="0"/>
+                          <Component id="bt_vaciar" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="chb_edificio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txt_depa" min="-2" pref="74" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txt_cp" min="-2" pref="162" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_tc" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txt_dni" min="-2" pref="162" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txt_email" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="21" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cob_localidad" pref="182" max="32767" attributes="0"/>
+                                  <Component id="txt_direccion" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="txt_depa" alignment="1" min="-2" pref="74" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txt_apellido" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txt_dni" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cob_localidad" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txt_direccion" min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txt_nombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="persona_medico" alignment="0" pref="187" max="32767" attributes="0"/>
+                          <Component id="txt_apellido" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="90" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jLabel14" max="32767" attributes="0"/>
+                  <Component id="jLabel13" min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="persona_medico" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -188,13 +199,13 @@
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cob_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Component id="bt_vaciar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="bt_alta" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="bt_atras" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -350,6 +361,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="bt_alta">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons8_ok_16px.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Dar de alta"/>
       </Properties>
       <AuxValues>
@@ -358,6 +372,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="bt_vaciar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons8_erase_16px.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Vaciar campos"/>
       </Properties>
       <AuxValues>
@@ -366,6 +383,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="bt_atras">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons8_back_16px_1.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Atr&#xe1;s"/>
       </Properties>
       <Events>
@@ -420,6 +440,21 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Alta de Pacientes/Medicos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel14">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons8_add_user_group_woman_man_60px.png"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

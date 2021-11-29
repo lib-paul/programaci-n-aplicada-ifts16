@@ -1,18 +1,7 @@
 package vista;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-import controlador.ctrlAltas;
-import controlador.ctrlBajas;
-import controlador.ctrlMod;
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import modelo.Consultas;
-import modelo.Medico;
-import modelo.Paciente;
+import controlador.*;
+import modelo.*;
 import vista.*;
 
 public class index extends javax.swing.JFrame {
@@ -21,26 +10,11 @@ public class index extends javax.swing.JFrame {
         initComponents();
     }
 
-    class jPanelGradient extends JPanel {
-
-        protected void PaintComponents(Graphics g) {
-            Graphics2D g2d = (Graphics2D) g;
-            int width = getWidth();
-            int height = getHeight();
-
-            Color color1 = new Color(52, 143, 80);
-            Color color2 = new Color(86, 100, 211);
-            GradientPaint gp = new GradientPaint(0, 0, color1, 180, height, color2);
-            g2d.setPaint(gp);
-            g2d.fillRect(0, 0, width, height);
-        }
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new jPanelGradient();
+        jPanel1 = new javax.swing.JPanel();
         btn_Bajas = new javax.swing.JButton();
         btn_modTurno = new javax.swing.JButton();
         btn_bajaTurno = new javax.swing.JButton();
@@ -202,7 +176,7 @@ public class index extends javax.swing.JFrame {
         ctrlMod controladorMod = new ctrlMod(medico, paciente, form, consultas);
         controladorMod.iniciar();
     }//GEN-LAST:event_btn_ModActionPerformed
-    public void setearUsuario(String usuario){
+    public void setearUsuario(String usuario) {
         this.lbl_usuario.setText(usuario);
     }
     private void btn_BajasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BajasActionPerformed
@@ -213,7 +187,7 @@ public class index extends javax.swing.JFrame {
         Medico medico = new Medico();
         /* CONSULTAS a la BDD */
         Consultas consultas = new Consultas();
-        /* MODIFICACIONES */
+        /* BAJAS */
         ctrlBajas controladorBajas = new ctrlBajas(medico, paciente, form, consultas);
         controladorBajas.iniciar();
     }//GEN-LAST:event_btn_BajasActionPerformed
@@ -222,9 +196,8 @@ public class index extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btn_cerrarActionPerformed
 
-
     public static void main(String args[]) {
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

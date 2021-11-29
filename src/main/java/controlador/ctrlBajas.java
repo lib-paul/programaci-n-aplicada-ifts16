@@ -1,22 +1,15 @@
 package controlador;
 
-import java.awt.event.ActionListener;
-import modelo.Consultas;
-import modelo.Medico;
-import modelo.Paciente;
-import vista.formMod;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
 import modelo.*;
 import vista.*;
 
 public class ctrlBajas implements ActionListener {
-    
+
     private Medico medico;
     private Paciente paciente;
     private formBaja frm;
@@ -47,29 +40,30 @@ public class ctrlBajas implements ActionListener {
         if ("Pacientes".equals(frm.cmbTipo.getItemAt(frm.cmbTipo.getSelectedIndex()))) {
             if (e.getSource() == frm.cmbTipo) {
                 try {
-                    consulta.cargarTabla(frm.tablaDatos,"Paciente");
+                    consulta.cargarTabla(frm.tablaDatos, "Paciente");
                     System.out.println("llegue");
                 } catch (SQLException ex) {
                     Logger.getLogger(ctrlBajas.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }if( e.getSource() == frm.btnEliminar){
+            }
+            if (e.getSource() == frm.btnEliminar) {
                 try {
                     consulta.eliminarRegistroTabla(frm.tablaDatos, "Paciente");
-                    consulta.cargarTabla(frm.tablaDatos,"Paciente");
+                    consulta.cargarTabla(frm.tablaDatos, "Paciente");
                 } catch (SQLException ex) {
                     Logger.getLogger(ctrlBajas.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }else if("Medicos".equals(frm.cmbTipo.getItemAt(frm.cmbTipo.getSelectedIndex()))){
+        } else if ("Medicos".equals(frm.cmbTipo.getItemAt(frm.cmbTipo.getSelectedIndex()))) {
             if (e.getSource() == frm.cmbTipo) {
                 try {
-                    consulta.cargarTabla(frm.tablaDatos,"Medico");
+                    consulta.cargarTabla(frm.tablaDatos, "Medico");
                     System.out.println("llegue");
                 } catch (SQLException ex) {
                     Logger.getLogger(ctrlBajas.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
-        
+
     }
 }

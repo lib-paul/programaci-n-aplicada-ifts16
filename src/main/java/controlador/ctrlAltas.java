@@ -1,24 +1,22 @@
 package controlador;
-import vista.formAlta;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import modelo.Consultas;
-import modelo.Medico;
-import modelo.Paciente;
-
+import vista.formAlta;
+import modelo.*;
 
 public class ctrlAltas implements ActionListener {
-    
+
     /* atributos */
     private Medico medico;
     private Paciente paciente;
     private formAlta frm;
     private Consultas consulta;
-    
+
     /* constructor */
     public ctrlAltas(Medico medico, Paciente paciente, formAlta frm, Consultas consulta) {
         this.medico = medico;
@@ -32,18 +30,18 @@ public class ctrlAltas implements ActionListener {
     }
 
     /* iniciador */
-    public void iniciar(){
+    public void iniciar() {
         frm.setTitle("Alta");
         frm.setLocationRelativeTo(null);
     }
-    
+
     /* controlador de altas paciente/medico*/
     @Override
     public void actionPerformed(ActionEvent e) {
         /* SI ES PACIENTE ENTONCES = */
-        if("Paciente".equals(frm.persona_medico.getItemAt(frm.persona_medico.getSelectedIndex()))){
+        if ("Paciente".equals(frm.persona_medico.getItemAt(frm.persona_medico.getSelectedIndex()))) {
             System.out.println("Elegiste paciente");
-            if(e.getSource() == frm.bt_alta){
+            if (e.getSource() == frm.bt_alta) {
                 paciente.setNombre(frm.txt_nombre.getText());
                 paciente.setApellido(frm.txt_apellido.getText());
                 paciente.setDni(Integer.parseInt(frm.txt_dni.getText()));
@@ -53,13 +51,13 @@ public class ctrlAltas implements ActionListener {
                 paciente.setTel_fijo(frm.txt_tf.getText());
                 paciente.setTel_cel(frm.txt_tc.getText());
                 paciente.setLocalidad(frm.cob_localidad.getSelectedIndex());
-                if(frm.chb_edificio.isSelected()){
+                if (frm.chb_edificio.isSelected()) {
                     paciente.setDepartamento(frm.txt_depa.getText());
-                }else{
+                } else {
                     //paciente.setDepartamento(""); NO HACE FALTA
                 }
                 try {
-                    if(consulta.altaPaciente(paciente)){
+                    if (consulta.altaPaciente(paciente)) {
                         JOptionPane.showMessageDialog(null, "Registro guardado.");
                         limpiar();
                     }
@@ -69,10 +67,9 @@ public class ctrlAltas implements ActionListener {
                     Logger.getLogger(ctrlAltas.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }/* SI ES MEDICO ENTONCES = */
-        else if("Medico".equals(frm.persona_medico.getItemAt(frm.persona_medico.getSelectedIndex()))){
+        }/* SI ES MEDICO ENTONCES = */ else if ("Medico".equals(frm.persona_medico.getItemAt(frm.persona_medico.getSelectedIndex()))) {
             System.out.println("Elegiste medico");
-            if(e.getSource() == frm.bt_alta){
+            if (e.getSource() == frm.bt_alta) {
                 medico.setNombre(frm.txt_nombre.getText());
                 medico.setApellido(frm.txt_apellido.getText());
                 medico.setDni(Integer.parseInt(frm.txt_dni.getText()));
@@ -82,13 +79,13 @@ public class ctrlAltas implements ActionListener {
                 medico.setTel_fijo(frm.txt_tf.getText());
                 medico.setTel_cel(frm.txt_tc.getText());
                 medico.setLocalidad(frm.cob_localidad.getSelectedIndex());
-                if(frm.chb_edificio.isSelected()){
+                if (frm.chb_edificio.isSelected()) {
                     medico.setDepartamento(frm.txt_depa.getText());
-                }else{
+                } else {
                     //medico.setDepartamento(""); NO HACE FALTA
                 }
                 try {
-                    if(consulta.altaMedico(medico) /*&& consulta.agregarEspecialidad(id medico, id especialidad )*/){
+                    if (consulta.altaMedico(medico) /*&& consulta.agregarEspecialidad(id medico, id especialidad )*/) {
                         JOptionPane.showMessageDialog(null, "Registro guardado.");
                         limpiar();
                     }
@@ -98,21 +95,20 @@ public class ctrlAltas implements ActionListener {
                     Logger.getLogger(ctrlAltas.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
-        else{/* SI NO SELECCIONA ENTONCES = */
-            if(e.getSource() == frm.bt_alta){
+        } else {/* SI NO SELECCIONA ENTONCES = */
+            if (e.getSource() == frm.bt_alta) {
                 JOptionPane.showMessageDialog(null, "Seleccione si cargar Paciente/Medico.");
             }
         }
-    
+
         //Limpiar
-        if(e.getSource() == frm.bt_vaciar){
+        if (e.getSource() == frm.bt_vaciar) {
             limpiar();
         }
     }
-    
+
     /* metodo para vaciar los txt field del formulario de alta paciente */
-    private void limpiar(){
+    private void limpiar() {
         frm.txt_nombre.setText(null);
         frm.txt_apellido.setText(null);
         frm.txt_dni.setText(null);

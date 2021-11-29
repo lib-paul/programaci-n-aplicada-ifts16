@@ -1,6 +1,6 @@
 package modelo;
 
-
+/* Clase para armar el objeto de MEDICO */
 public class Medico {
     
     /* atributos */
