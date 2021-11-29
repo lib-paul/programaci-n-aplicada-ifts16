@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `especialidad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `especialidad` (
-  `id_especialidad` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre_especialidad` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_especialidad`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -66,30 +66,6 @@ INSERT INTO `historiaclinica` VALUES (1,'el paciente manifiesta ser muy puto');
 UNLOCK TABLES;
 
 --
--- Table structure for table `localidad`
---
-
-DROP TABLE IF EXISTS `localidad`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `localidad` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `localidad`
---
-
-LOCK TABLES `localidad` WRITE;
-/*!40000 ALTER TABLE `localidad` DISABLE KEYS */;
-INSERT INTO `localidad` VALUES (6,'belgrano'),(7,'palermo'),(8,'vicente lopez');
-/*!40000 ALTER TABLE `localidad` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `medico`
 --
 
@@ -107,11 +83,9 @@ CREATE TABLE `medico` (
   `telefono_celular` varchar(45) NOT NULL,
   `departamento` varchar(45) DEFAULT NULL,
   `codigo_postal` int DEFAULT NULL,
-  `id_localidad` int NOT NULL,
-  PRIMARY KEY (`id_medico`),
-  KEY `id_localidad_medico_idx` (`id_localidad`),
-  CONSTRAINT `id_localidad_medico` FOREIGN KEY (`id_localidad`) REFERENCES `localidad` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+  `localidad` int NOT NULL,
+  PRIMARY KEY (`id_medico`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,6 +94,7 @@ CREATE TABLE `medico` (
 
 LOCK TABLES `medico` WRITE;
 /*!40000 ALTER TABLE `medico` DISABLE KEYS */;
+INSERT INTO `medico` VALUES (1,'guchoo','guchinho',3213321,'Algo 123','gucho@gmail.com','123123213','1231231321','1ºA',1231,1);
 /*!40000 ALTER TABLE `medico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +112,7 @@ CREATE TABLE `medico_especialidad` (
   PRIMARY KEY (`id_medico_especialidad`),
   KEY `medico_especialidadEspecialidad_idx` (`id_especialidad`),
   KEY `medico_especialidadMedico_idx` (`id_medico`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +121,7 @@ CREATE TABLE `medico_especialidad` (
 
 LOCK TABLES `medico_especialidad` WRITE;
 /*!40000 ALTER TABLE `medico_especialidad` DISABLE KEYS */;
-INSERT INTO `medico_especialidad` VALUES (1,1,1),(2,1,2);
+INSERT INTO `medico_especialidad` VALUES (5,1,1),(7,1,2),(8,1,1),(9,1,2),(10,1,1);
 /*!40000 ALTER TABLE `medico_especialidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,20 +136,18 @@ CREATE TABLE `paciente` (
   `id_paciente` int NOT NULL AUTO_INCREMENT,
   `nombres` varchar(120) NOT NULL,
   `apellido` varchar(45) NOT NULL,
-  `documento` int NOT NULL,
+  `documento` bigint NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `telefono_fijo` varchar(20) DEFAULT NULL,
   `telefono_celular` varchar(20) NOT NULL,
   `departamento` varchar(45) DEFAULT NULL,
   `codigo_postal` int DEFAULT NULL,
-  `id_localidad` int NOT NULL,
+  `localidad` int NOT NULL,
   `id_historia_clinica` int DEFAULT NULL,
   PRIMARY KEY (`id_paciente`),
-  KEY `pacienteHistoriaClinica_idx` (`id_historia_clinica`),
-  KEY `id_localidad_paciente_idx` (`id_localidad`),
-  CONSTRAINT `id_localidad_paciente` FOREIGN KEY (`id_localidad`) REFERENCES `localidad` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+  KEY `pacienteHistoriaClinica_idx` (`id_historia_clinica`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +156,7 @@ CREATE TABLE `paciente` (
 
 LOCK TABLES `paciente` WRITE;
 /*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
-INSERT INTO `paciente` VALUES (2,'f','f',1,'f','f','f','f','f',0,6,NULL),(3,'Paulette','Longonette',40255123,'Lascano 290','Pauletovich@gmail.com','11-234-5432','11-3232-1231','1ºA',0,6,NULL),(4,'f','f',1,'ff','f','f','f','f',12,6,NULL),(5,'f','f',11,'ff','ff','ff','ff','',11,8,NULL);
+INSERT INTO `paciente` VALUES (9,'AAAAAAAAAAAAA','membiELA',123123,'nIidea 213','guchoo@gmail.com','0000000','000000','1ºB',123,2,NULL);
 /*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-17 19:19:49
+-- Dump completed on 2021-11-28 18:35:03

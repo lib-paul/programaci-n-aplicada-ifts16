@@ -1,4 +1,6 @@
 package modelo;
+
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,7 +8,7 @@ import java.sql.SQLException;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
-
+import javax.swing.JOptionPane;
 
 public class Consultas extends conexionBDD {
 
@@ -29,7 +31,7 @@ public class Consultas extends conexionBDD {
             pps.setString(8, paciente.getDepartamento());
             pps.setInt(9, paciente.getCodigo_postal());
             pps.setInt(10, paciente.getLocalidad());
-            
+
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -44,7 +46,7 @@ public class Consultas extends conexionBDD {
         }
 
     }
-    
+
     /* INSERT medico (alta) */
     public boolean altaMedico(Medico medico) throws SQLException {
         PreparedStatement pps;
@@ -64,7 +66,7 @@ public class Consultas extends conexionBDD {
             pps.setString(8, medico.getDepartamento());
             pps.setInt(9, medico.getCodigo_postal());
             pps.setInt(10, medico.getLocalidad());
-            
+
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -78,20 +80,20 @@ public class Consultas extends conexionBDD {
             }
         }
 
-    }    
-    
+    }
+
     /* SELECT medico (buscar) */
-    public boolean buscarMedico(Medico medico) throws SQLException{
+    public boolean buscarMedico(Medico medico) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
         ResultSet rs;
         String sql = "SELECT * FROM medico WHERE documento = ?;";
 
-        try{
+        try {
             pps = con.prepareStatement(sql);
             pps.setString(1, String.valueOf(medico.getDni()));
             rs = pps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 medico.setId(Integer.parseInt(rs.getString("id_medico")));
                 medico.setLocalidad(Integer.parseInt(rs.getString("localidad")));
                 medico.setDni(Integer.parseInt(rs.getString("documento")));
@@ -106,30 +108,30 @@ public class Consultas extends conexionBDD {
                 return true;
             }
             return false;
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
-        } finally{
-            try{
+        } finally {
+            try {
                 con.close();
-            }catch(SQLException e){
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
-    
+
     /* SELECT paciente (buscar) */
-    public boolean buscarPaciente(Paciente paciente) throws SQLException{
+    public boolean buscarPaciente(Paciente paciente) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
         ResultSet rs;
         String sql = "SELECT * FROM paciente WHERE documento = ?;";
-        
-        try{
+
+        try {
             pps = con.prepareStatement(sql);
             pps.setString(1, String.valueOf(paciente.getDni()));
             rs = pps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 paciente.setId(Integer.parseInt(rs.getString("id_paciente")));
                 paciente.setLocalidad(Integer.parseInt(rs.getString("localidad")));
                 paciente.setDni(Integer.parseInt(rs.getString("documento")));
@@ -144,18 +146,18 @@ public class Consultas extends conexionBDD {
                 return true;
             }
             return false;
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
-        } finally{
-            try{
+        } finally {
+            try {
                 con.close();
-            }catch(SQLException e){
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
-    
+
     /* UPDATE paciente (alta) */
     public boolean updatePaciente(Paciente paciente, int dni) throws SQLException {
         PreparedStatement pps;
@@ -176,7 +178,7 @@ public class Consultas extends conexionBDD {
             pps.setInt(9, paciente.getCodigo_postal());
             pps.setInt(10, paciente.getLocalidad());
             pps.setLong(11, dni);
-            
+
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -191,7 +193,7 @@ public class Consultas extends conexionBDD {
         }
 
     }
-    
+
     /* UPDATE MEDICO */
     public boolean updateMedico(Medico medico, int dni) throws SQLException {
         PreparedStatement pps;
@@ -212,7 +214,7 @@ public class Consultas extends conexionBDD {
             pps.setInt(9, medico.getCodigo_postal());
             pps.setInt(10, medico.getLocalidad());
             pps.setInt(11, dni);
-            
+
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -227,9 +229,9 @@ public class Consultas extends conexionBDD {
         }
 
     }
-    
+
     /* INSERT relacion medico_especialidad (agregar especialidad) */
-    public boolean agregarEspecialidad(int id_m, int id_e ) throws SQLException {
+    public boolean agregarEspecialidad(int id_m, int id_e) throws SQLException {
         PreparedStatement pps;
         Connection con = conexion();
         String sql = "INSERT INTO medico_especialidad (id_medico, id_especialidad) VALUES (?,?);";
@@ -239,7 +241,7 @@ public class Consultas extends conexionBDD {
 
             pps.setInt(1, id_m);
             pps.setInt(2, id_e);
-            
+
             pps.execute();
             return true;
         } catch (SQLException e) {
@@ -254,7 +256,61 @@ public class Consultas extends conexionBDD {
         }
 
     }
+
+    public boolean verificarEspecialidad(int id_m, int id_e) throws SQLException {
+        PreparedStatement pps;
+        Connection con = conexion();
+        String sql = "SELECT * FROM medico_especialidad WHERE id_medico=?;";
+        ResultSet rs;
+        try {
+            pps = con.prepareStatement(sql);
+            pps.setInt(1, id_m);
+            rs = pps.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString("id_especialidad") + rs.getString("id_medico"));
+                if (Integer.parseInt(rs.getString("id_especialidad")) == id_e) {
+                    return false;
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return true;
+    }
     
+    
+    public boolean eliminarEspecialidad(int id_medicoCargado, int id_especialidadSeleccionada) throws SQLException{
+        PreparedStatement pps;
+        Connection con = conexion();
+        String sql = "DELETE FROM medico_especialidad WHERE id_medico=? AND id_especialidad=?;";
+        
+        try {
+            pps = con.prepareStatement(sql);
+            pps.setInt(1, id_medicoCargado);
+            pps.setInt(2, id_especialidadSeleccionada);
+            pps.execute();
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return true;
+    }
+
     /* cargar combo box especialidad */
     public boolean cargarComboBoxE(JComboBox cob_especialidades) throws SQLException {
         PreparedStatement pps;
@@ -265,7 +321,7 @@ public class Consultas extends conexionBDD {
             pps = con.prepareStatement(sql);
             rs = pps.executeQuery();
             while (rs.next()) {
-                cob_especialidades.addItem(rs.getString("id")+"-"+rs.getString("nombre_especialidad"));
+                cob_especialidades.addItem(rs.getString("id") + "-" + rs.getString("nombre_especialidad"));
             }
             return false;
         } catch (SQLException e) {
@@ -279,58 +335,43 @@ public class Consultas extends conexionBDD {
             }
         }
     }
-    
-    public boolean ListaEspecialidades(DefaultListModel list_especialidades,Medico medico) throws SQLException{
 
+    public boolean ListaEspecialidades(DefaultListModel list_especialidades, Medico medico) throws SQLException {
+        
         PreparedStatement pps;
         Connection con = conexion();
         ResultSet rs;
-        String sql= "SELECT especialidad.nombre_especialidad FROM medico_especialidad INNER JOIN especialidad ON medico_especialidad.id_especialidad = id WHERE medico_especialidad.id_medico = ?";
-        try{
+        String sql = "SELECT especialidad.nombre_especialidad FROM medico_especialidad INNER JOIN especialidad ON medico_especialidad.id_especialidad = id WHERE medico_especialidad.id_medico = ?";
+        try {
             pps = con.prepareStatement(sql);
-            pps.setInt(1,medico.getId());
+            pps.setInt(1, medico.getId());
             rs = pps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 list_especialidades.addElement(rs.getString("nombre_especialidad"));
             }
             return false;
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         } finally {
-            try{
+            try {
                 con.close();
-            }catch(SQLException e){
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
-        
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /***************************************/
-    /***************** OLD *****************/
-    /***************************************/
+
+    /**
+     * ************************************
+     */
+    /**
+     * *************** OLD ****************
+     */
+    /**
+     * ************************************
+     */
     /*
     cargar combo box localidad paciente
     public boolean cargarComboBoxP(formAltaPaciente frm) throws SQLException {
@@ -384,5 +425,5 @@ public class Consultas extends conexionBDD {
         }
     }
     
-    */
+     */
 }
