@@ -122,5 +122,49 @@ public class ConsultasTurnos extends conexionBDD {
         } catch (SQLException ex) {
             Logger.getLogger(ConsultasTurnos.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
+
+    public void cargarTablaTurnos(JTable tabla) throws SQLException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        tabla.setModel(modelo);
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT turnos.idTurno,paciente.nombres as 'nombre_paciente', paciente.apellido as 'apellido_paciente', medico.nombres as 'nombre_medico' , medico.apellido as 'apellido_medico', turnos.nombre_especialidad, turnos.Fecha,turnos.Horario FROM turnos INNER JOIN medico ON medico.id_medico = turnos.IdMedico INNER JOIN paciente ON paciente.id_paciente = turnos.idPaciente ORDER BY turnos.idTurno;";
+        Connection con = conexion();
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        ResultSetMetaData rsMD = rs.getMetaData();
+        int cantidadColumnas = rsMD.getColumnCount();
+        modelo.addColumn("ID Turno");
+        modelo.addColumn("Nombre Paciente");
+        modelo.addColumn("Apellido Paciente");
+        modelo.addColumn("Nombre Medico");
+        modelo.addColumn("Apellido Medico");
+        modelo.addColumn("Especialidad");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Horario");
+
+        while (rs.next()) {
+            Object[] filas = new Object[cantidadColumnas];
+            for (int i = 0; i < cantidadColumnas; i++) {
+                filas[i] = rs.getObject(i + 1);
+            }
+            modelo.addRow(filas);
+        }
+    }
+    
+    public void eliminarTurnoSeleccionado(JTable tabla) throws SQLException{
+        PreparedStatement pps = null;
+        Connection con = conexion();
+        String sql = null;
+        int Fila = tabla.getSelectedRow();
+        int id = (int) tabla.getValueAt(Fila, 0);
+        sql="DELETE FROM turnos WHERE idTurno=?;";
+
+        pps = con.prepareStatement(sql);
+        pps.setInt(1, id);
+        pps.execute();
+    }
+
 }

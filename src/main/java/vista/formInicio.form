@@ -144,6 +144,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Baja turnos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_bajaTurnoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_cerrar">
           <Properties>

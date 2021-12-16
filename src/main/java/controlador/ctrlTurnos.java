@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import vista.*;
 import modelo.*;
 
@@ -91,6 +92,7 @@ public class ctrlTurnos implements ActionListener {
            try {
                consultaTurnos.cargarTurno(idPaciente,idMedico, fecha, hora, frm.comboEspecialidades.getItemAt(frm.comboEspecialidades.getSelectedIndex()));
                consultaTurnos.cargarTablaIntermediaTP(idPaciente);
+               JOptionPane.showMessageDialog(null, "Turno cargado :).");
            } catch (SQLException ex) {
                Logger.getLogger(ctrlTurnos.class.getName()).log(Level.SEVERE, null, ex);
             }

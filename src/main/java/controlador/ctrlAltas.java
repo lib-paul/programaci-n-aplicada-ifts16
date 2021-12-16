@@ -42,20 +42,23 @@ public class ctrlAltas implements ActionListener {
         if ("Paciente".equals(frm.persona_medico.getItemAt(frm.persona_medico.getSelectedIndex()))) {
             System.out.println("Elegiste paciente");
             if (e.getSource() == frm.bt_alta) {
-                paciente.setNombre(frm.txt_nombre.getText());
-                paciente.setApellido(frm.txt_apellido.getText());
-                paciente.setDni(Integer.parseInt(frm.txt_dni.getText()));
-                paciente.setDireccion(frm.txt_direccion.getText());
-                paciente.setEmail(frm.txt_email.getText());
-                paciente.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
-                paciente.setTel_fijo(frm.txt_tf.getText());
-                paciente.setTel_cel(frm.txt_tc.getText());
-                paciente.setLocalidad(frm.cob_localidad.getSelectedIndex());
-                if (frm.chb_edificio.isSelected()) {
-                    paciente.setDepartamento(frm.txt_depa.getText());
-                } else {
-                    //paciente.setDepartamento(""); NO HACE FALTA
+                if (verificarCampos()) {
+                    paciente.setNombre(frm.txt_nombre.getText());
+                    paciente.setApellido(frm.txt_apellido.getText());
+                    paciente.setDni(Integer.parseInt(frm.txt_dni.getText()));
+                    paciente.setDireccion(frm.txt_direccion.getText());
+                    paciente.setEmail(frm.txt_email.getText());
+                    paciente.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
+                    paciente.setTel_fijo(frm.txt_tf.getText());
+                    paciente.setTel_cel(frm.txt_tc.getText());
+                    paciente.setLocalidad(frm.cob_localidad.getSelectedIndex());
+                    if (frm.chb_edificio.isSelected()) {
+                        paciente.setDepartamento(frm.txt_depa.getText());
+                    } else {
+                        //paciente.setDepartamento(""); NO HACE FALTA
+                    }
                 }
+
                 try {
                     if (consulta.altaPaciente(paciente)) {
                         JOptionPane.showMessageDialog(null, "Registro guardado.");
@@ -70,20 +73,26 @@ public class ctrlAltas implements ActionListener {
         }/* SI ES MEDICO ENTONCES = */ else if ("Medico".equals(frm.persona_medico.getItemAt(frm.persona_medico.getSelectedIndex()))) {
             System.out.println("Elegiste medico");
             if (e.getSource() == frm.bt_alta) {
-                medico.setNombre(frm.txt_nombre.getText());
-                medico.setApellido(frm.txt_apellido.getText());
-                medico.setDni(Integer.parseInt(frm.txt_dni.getText()));
-                medico.setDireccion(frm.txt_direccion.getText());
-                medico.setEmail(frm.txt_email.getText());
-                medico.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
-                medico.setTel_fijo(frm.txt_tf.getText());
-                medico.setTel_cel(frm.txt_tc.getText());
-                medico.setLocalidad(frm.cob_localidad.getSelectedIndex());
-                if (frm.chb_edificio.isSelected()) {
-                    medico.setDepartamento(frm.txt_depa.getText());
+                if (verificarCampos()) {
+                    System.out.println("LLEGUE HASTA ANTES DE VERIFICAR");
+                    medico.setNombre(frm.txt_nombre.getText());
+                    medico.setApellido(frm.txt_apellido.getText());
+                    medico.setDni(Integer.parseInt(frm.txt_dni.getText()));
+                    medico.setDireccion(frm.txt_direccion.getText());
+                    medico.setEmail(frm.txt_email.getText());
+                    medico.setCodigo_postal(Integer.parseInt(frm.txt_cp.getText()));
+                    medico.setTel_fijo(frm.txt_tf.getText());
+                    medico.setTel_cel(frm.txt_tc.getText());
+                    medico.setLocalidad(frm.cob_localidad.getSelectedIndex());
+                    if (frm.chb_edificio.isSelected()) {
+                        medico.setDepartamento(frm.txt_depa.getText());
+                    } else {
+                        //medico.setDepartamento(""); NO HACE FALTA
+                    }
                 } else {
-                    //medico.setDepartamento(""); NO HACE FALTA
+
                 }
+
                 try {
                     if (consulta.altaMedico(medico) /*&& consulta.agregarEspecialidad(id medico, id especialidad )*/) {
                         JOptionPane.showMessageDialog(null, "Registro guardado.");
@@ -120,6 +129,19 @@ public class ctrlAltas implements ActionListener {
         frm.txt_email.setText(null);
         frm.txt_tf.setText(null);
         frm.txt_tc.setText(null);
+        this.medico.setNombre("");
+        this.paciente.setNombre("");
+        
     }
 
+    private boolean verificarCampos() {
+        if (frm.txt_nombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Falta el nombre...");
+            return false;
+        } else if (frm.txt_apellido.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Falta el apellido...");
+            return false;
+        }
+        return true;
+    }
 }

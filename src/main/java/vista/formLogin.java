@@ -86,7 +86,7 @@ public class formLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+  
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         if (this.txt_Usuario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Usuario vacio");
@@ -104,12 +104,13 @@ public class formLogin extends javax.swing.JFrame {
         try {
             UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         this.setBackground(new java.awt.Color(255, 255, 255));
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
+    
 
     public static void main(String args[]) {
         /* Create and display the form */
