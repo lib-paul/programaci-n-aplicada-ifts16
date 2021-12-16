@@ -176,9 +176,7 @@ public class formMod extends javax.swing.JFrame {
 
         jLabel7.setText("Codigo Postal");
 
-        txt_buscar_dni.setText("** N° Documento **");
-
-        bt_buscar.setText("Buscar");
+        bt_buscar.setText("Buscar por DNI");
 
         bt_agregar_especialidad.setText("Agregar");
         bt_agregar_especialidad.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +266,7 @@ public class formMod extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblProfile)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

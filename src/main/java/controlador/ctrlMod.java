@@ -48,13 +48,13 @@ public class ctrlMod implements ActionListener {
             frm.bt_agregar_especialidad.setVisible(false);
             /*-------BUSCAR PACIENTE-------*/
             if (e.getSource() == frm.bt_buscar) {
-
-                try {
+                
+                if (verificarCampos()) {
+                      try {
                     paciente.setDni(Integer.parseInt(frm.txt_buscar_dni.getText()));
                 } catch (NumberFormatException b) {
                     System.out.println("NUMERO GRANDE");
-                }
-
+                } 
                 try {
                     if (consulta.buscarPaciente(paciente)) {
                         if (paciente.getDepartamento() != null) {
@@ -77,6 +77,7 @@ public class ctrlMod implements ActionListener {
                     JOptionPane.showMessageDialog(null, "No se encontró el resultado.");
                 }
             }
+                }
 
             /*--------GUARDAR PACIENTE----------*/
             if (e.getSource() == frm.bt_guardar) {
@@ -208,5 +209,14 @@ public class ctrlMod implements ActionListener {
         frm.txt_tf.setText(null);
         frm.txt_tc.setText(null);
     }
+    
+    public boolean verificarCampos(){
+        if (frm.txt_buscar_dni.getText().isEmpty()) {
+           JOptionPane.showMessageDialog(null, "EL campo para el DNI esta vacio");
+           return false;
+        }
+        return true;
+    }
+    
 
 }
