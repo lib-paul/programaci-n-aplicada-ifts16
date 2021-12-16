@@ -400,7 +400,7 @@ public class formMod extends javax.swing.JFrame {
 
     private void bt_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_atrasActionPerformed
 
-        index form = new index();
+        formInicio form = new formInicio();
         this.setVisible(false);
         form.setVisible(true);
         form.setLocationRelativeTo(null);

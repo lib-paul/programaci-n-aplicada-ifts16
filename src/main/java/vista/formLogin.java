@@ -28,7 +28,7 @@ public class formLogin extends javax.swing.JFrame {
         jLabel1.setText("Bienvenid@ a TurnosPI");
 
         btn_login.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btn_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_login_64px.png"))); // NOI18N
+        btn_login.setText("LOGIN");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
@@ -43,8 +43,6 @@ public class formLogin extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/signin-image.jpg"))); // NOI18N
         jLabel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_user_64px.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,8 +92,9 @@ public class formLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario vacio");
         } else {
             this.setVisible(false);
-            index form = new index();
+            formInicio form = new formInicio();
             form.setVisible(true);
+            form.setLocationRelativeTo(null);
             String usuario = this.txt_Usuario.getText();
             form.setearUsuario(usuario);
         }
@@ -105,7 +104,7 @@ public class formLogin extends javax.swing.JFrame {
         try {
             UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         this.setBackground(new java.awt.Color(255, 255, 255));
         this.setLocationRelativeTo(null);

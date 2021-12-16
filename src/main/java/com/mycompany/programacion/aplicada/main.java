@@ -10,6 +10,8 @@ public class main {
         /* Formulario Principal */
         formLogin login = new formLogin();
         login.empezar();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
         
     }
 }

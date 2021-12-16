@@ -31,7 +31,6 @@ public class ctrlBajas implements ActionListener {
     public void iniciar() {
         frm.setTitle("Bajas");
         frm.setLocationRelativeTo(null);
-        System.out.println("algo");
     }
 
     /* Controlador BAJA */
@@ -39,6 +38,7 @@ public class ctrlBajas implements ActionListener {
     public void actionPerformed(ActionEvent e) throws NumberFormatException {
         if ("Pacientes".equals(frm.cmbTipo.getItemAt(frm.cmbTipo.getSelectedIndex()))) {
             if (e.getSource() == frm.cmbTipo) {
+                
                 try {
                     consulta.cargarTabla(frm.tablaDatos, "Paciente");
                     System.out.println("llegue");

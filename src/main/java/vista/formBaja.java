@@ -114,8 +114,9 @@ public class formBaja extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
       this.setVisible(false);
-      index form = new index();
+      formInicio form = new formInicio();
       form.setVisible(true);
+      form.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

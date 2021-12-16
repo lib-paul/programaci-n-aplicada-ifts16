@@ -355,6 +355,7 @@ public class Consultas extends conexionBDD {
         ResultSet rs = null;
         Connection con = conexion();
         String sql = null;
+        
         if (variable == "Paciente") {
             sql = "SELECT id_paciente, nombres, apellido, documento, direccion, email, telefono_fijo, telefono_celular FROM paciente ";
         } else if (variable == "Medico") {
