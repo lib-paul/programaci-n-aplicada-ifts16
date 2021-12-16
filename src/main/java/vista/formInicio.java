@@ -49,6 +49,7 @@ public class formInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_Bajas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Bajas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_delete_32px.png"))); // NOI18N
         btn_Bajas.setText("Baja pacientes/medicos");
         btn_Bajas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,9 +61,11 @@ public class formInicio extends javax.swing.JFrame {
         btn_modTurno.setText("Modificacion turno");
 
         btn_bajaTurno.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_bajaTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_delete_32px.png"))); // NOI18N
         btn_bajaTurno.setText("Baja turnos");
 
         btn_cerrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_Logout_64px.png"))); // NOI18N
         btn_cerrar.setText("Cerrar sesion");
         btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +74,7 @@ public class formInicio extends javax.swing.JFrame {
         });
 
         btn_Altas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Altas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_back_to_32px.png"))); // NOI18N
         btn_Altas.setText("Alta pacientes/medicos");
         btn_Altas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +83,7 @@ public class formInicio extends javax.swing.JFrame {
         });
 
         btn_altaTurno.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_altaTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_ok_32px.png"))); // NOI18N
         btn_altaTurno.setText("Turnos disponibles");
         btn_altaTurno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +92,7 @@ public class formInicio extends javax.swing.JFrame {
         });
 
         btn_Mod.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Mod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_edit_property_32px.png"))); // NOI18N
         btn_Mod.setText("Mod pacientes/medicos");
         btn_Mod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +106,7 @@ public class formInicio extends javax.swing.JFrame {
         lbl_usuario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbl_usuario.setText("Usuario");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnospi.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

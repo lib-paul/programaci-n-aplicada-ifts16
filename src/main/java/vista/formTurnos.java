@@ -61,6 +61,7 @@ public class formTurnos extends javax.swing.JFrame {
 
         jLabel3.setText("Paciente");
 
+        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_ok_16px.png"))); // NOI18N
         btnBuscarPaciente.setText("Buscar por DNI");
         btnBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,8 +84,10 @@ public class formTurnos extends javax.swing.JFrame {
 
         jLabel1.setText("PACIENTE SELECCIONADO");
 
+        btnCargarTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_add_16px.png"))); // NOI18N
         btnCargarTurno.setText("Cargar Turno :)");
 
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_back_16px_1.png"))); // NOI18N
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

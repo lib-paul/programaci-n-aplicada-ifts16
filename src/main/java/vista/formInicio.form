@@ -117,6 +117,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons8_delete_32px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Baja pacientes/medicos"/>
           </Properties>
           <Events>
@@ -136,6 +139,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons8_delete_32px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Baja turnos"/>
           </Properties>
         </Component>
@@ -143,6 +149,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons8_Logout_64px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
           </Properties>
@@ -155,6 +164,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons8_back_to_32px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Alta pacientes/medicos"/>
           </Properties>
           <Events>
@@ -166,6 +178,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons8_ok_32px.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Turnos disponibles"/>
           </Properties>
           <Events>
@@ -176,6 +191,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons8_edit_property_32px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Mod pacientes/medicos"/>
           </Properties>
@@ -201,6 +219,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/turnospi.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
