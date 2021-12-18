@@ -221,7 +221,7 @@ public class Consultas extends conexionBDD {
         PreparedStatement pps;
         Connection con = conexion();
         String sql = "INSERT INTO medico_especialidad (id_medico, id_especialidad) VALUES (?,?);";
-
+        
         try {
             pps = con.prepareStatement(sql);
             pps.setInt(1, id_m);
@@ -274,7 +274,9 @@ public class Consultas extends conexionBDD {
         PreparedStatement pps;
         Connection con = conexion();
         String sql = "DELETE FROM medico_especialidad WHERE id_medico=? AND id_especialidad=?;";
-
+        if(id_especialidadSeleccionada == 0){
+            
+        }
         try {
             pps = con.prepareStatement(sql);
             pps.setInt(1, id_medicoCargado);

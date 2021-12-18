@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.*;
 import vista.*;
 
@@ -50,6 +51,7 @@ public class ctrlBajas implements ActionListener {
                 try {
                     consulta.eliminarRegistroTabla(frm.tablaDatos, "Paciente");
                     consulta.cargarTabla(frm.tablaDatos, "Paciente");
+                    JOptionPane.showMessageDialog(null, "Paciente Eliminado");
                 } catch (SQLException ex) {
                     Logger.getLogger(ctrlBajas.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -59,6 +61,14 @@ public class ctrlBajas implements ActionListener {
                 try {
                     consulta.cargarTabla(frm.tablaDatos, "Medico");
                     System.out.println("llegue");
+                } catch (SQLException ex) {
+                    Logger.getLogger(ctrlBajas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }if (e.getSource() == frm.btnEliminar) {
+                try {
+                    consulta.eliminarRegistroTabla(frm.tablaDatos, "Medico");
+                    consulta.cargarTabla(frm.tablaDatos, "Medico");
+                    JOptionPane.showMessageDialog(null, "Medico Eliminado");
                 } catch (SQLException ex) {
                     Logger.getLogger(ctrlBajas.class.getName()).log(Level.SEVERE, null, ex);
                 }

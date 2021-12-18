@@ -29,6 +29,7 @@ public class ctrlMod implements ActionListener {
         this.frm.bt_atras.addActionListener(this);
         this.frm.bt_buscar.addActionListener(this);
         this.frm.persona_medico.addActionListener(this);
+        this.frm.bt_vaciar.addActionListener(this);
     }
 
     /* iniciador */
@@ -48,36 +49,36 @@ public class ctrlMod implements ActionListener {
             frm.bt_agregar_especialidad.setVisible(false);
             /*-------BUSCAR PACIENTE-------*/
             if (e.getSource() == frm.bt_buscar) {
-                
-                if (verificarCampos()) {
-                      try {
-                    paciente.setDni(Integer.parseInt(frm.txt_buscar_dni.getText()));
-                } catch (NumberFormatException b) {
-                    System.out.println("NUMERO GRANDE");
-                } 
-                try {
-                    if (consulta.buscarPaciente(paciente)) {
-                        if (paciente.getDepartamento() != null) {
-                            frm.chb_edificio.setSelected(true);
-                            frm.txt_depa.setEnabled(true);
-                        }
-                        frm.txt_nombre.setText(paciente.getNombre());
-                        frm.txt_apellido.setText(paciente.getApellido());
-                        frm.txt_dni.setText(String.valueOf(paciente.getDni()));
-                        frm.cob_localidad.setSelectedIndex(paciente.getLocalidad());
-                        frm.txt_direccion.setText(paciente.getDireccion());
-                        frm.txt_depa.setText(paciente.getDepartamento());
-                        frm.txt_cp.setText(String.valueOf(paciente.getCodigo_postal()));
-                        frm.txt_email.setText(paciente.getEmail());
-                        frm.txt_tf.setText(paciente.getTel_fijo());
-                        frm.txt_tc.setText(paciente.getTel_cel());
 
+                if (verificarCampos()) {
+                    try {
+                        paciente.setDni(Integer.parseInt(frm.txt_buscar_dni.getText()));
+                    } catch (NumberFormatException b) {
+                        System.out.println("NUMERO GRANDE");
                     }
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "No se encontró el resultado.");
+                    try {
+                        if (consulta.buscarPaciente(paciente)) {
+                            if (paciente.getDepartamento() != null) {
+                                frm.chb_edificio.setSelected(true);
+                                frm.txt_depa.setEnabled(true);
+                            }
+                            frm.txt_nombre.setText(paciente.getNombre());
+                            frm.txt_apellido.setText(paciente.getApellido());
+                            frm.txt_dni.setText(String.valueOf(paciente.getDni()));
+                            frm.cob_localidad.setSelectedIndex(paciente.getLocalidad());
+                            frm.txt_direccion.setText(paciente.getDireccion());
+                            frm.txt_depa.setText(paciente.getDepartamento());
+                            frm.txt_cp.setText(String.valueOf(paciente.getCodigo_postal()));
+                            frm.txt_email.setText(paciente.getEmail());
+                            frm.txt_tf.setText(paciente.getTel_fijo());
+                            frm.txt_tc.setText(paciente.getTel_cel());
+
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "No se encontró el resultado.");
+                    }
                 }
             }
-                }
 
             /*--------GUARDAR PACIENTE----------*/
             if (e.getSource() == frm.bt_guardar) {
@@ -187,16 +188,20 @@ public class ctrlMod implements ActionListener {
                 }
                 controlador.iniciar();
                 form.setVisible(true);
-            }
 
-        } else {
-            if (e.getSource() == frm.bt_buscar) {
-                JOptionPane.showMessageDialog(null, "Seleccione primero Paciente/Medico");
+            } else {
+                if (e.getSource() == frm.bt_buscar) {
+                    JOptionPane.showMessageDialog(null, "Seleccione primero Paciente/Medico");
+                }
+
+            }
+            //Limpiar
+            if (e.getSource() == frm.bt_vaciar) {
+                limpiar();
             }
         }
     }
-
-    /* metodo para vaciar los txt field del formulario de alta paciente */
+        /* metodo para vaciar los txt field del formulario de alta paciente */
     private void limpiar() {
         frm.txt_nombre.setText(null);
         frm.txt_apellido.setText(null);
@@ -209,14 +214,13 @@ public class ctrlMod implements ActionListener {
         frm.txt_tf.setText(null);
         frm.txt_tc.setText(null);
     }
-    
-    public boolean verificarCampos(){
+
+    public boolean verificarCampos() {
         if (frm.txt_buscar_dni.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "EL campo para el DNI esta vacio");
-           return false;
+            JOptionPane.showMessageDialog(null, "EL campo para el DNI esta vacio");
+            return false;
         }
         return true;
     }
-    
 
 }
